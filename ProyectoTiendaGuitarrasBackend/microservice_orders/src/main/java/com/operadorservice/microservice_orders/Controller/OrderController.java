@@ -19,12 +19,12 @@ public class OrderController {
     
     @PostMapping
     public ResponseEntity<?> createOrder(@RequestBody @Valid OrderRequest request){
-        try {
+        //try {
             Order order = orderService.createOrder(request);
             return ResponseEntity.status(HttpStatus.CREATED).body(order);
-        } catch (Exception e) {
+        /*} catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error interno: " + e.getMessage());
-        }
+        }*/
     }
     
     @GetMapping
