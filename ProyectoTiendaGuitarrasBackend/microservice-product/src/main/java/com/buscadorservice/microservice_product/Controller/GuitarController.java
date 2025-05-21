@@ -1,16 +1,17 @@
 package com.buscadorservice.microservice_product.Controller;
 
 import com.buscadorservice.microservice_product.Infraestructure.dto.*;
-import com.buscadorservice.microservice_product.Infraestructure.exception.ResourceNotFoundException;
 import com.buscadorservice.microservice_product.Service.IGuitarService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Positive;
 import org.springframework.http.*;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/guitarras")
+@Validated
 public class GuitarController {
     private final IGuitarService service;
 
@@ -20,64 +21,40 @@ public class GuitarController {
 
     @GetMapping
     public ResponseEntity<?> getAll() {
-        try {
-            List<GuitarResponseDto> guitars = service.getAll();
-            if (guitars.isEmpty())
-                return ResponseEntity.noContent().build();
-            return ResponseEntity.ok(guitars);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error interno: " + e.getMessage());
-        }
+        List<GuitarResponseDto> guitars = service.getAll();
+        if (guitars.isEmpty())
+            return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(new ResponseGeneric<>("Productos encontrados", guitars));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getById(@PathVariable Long id) {
-        try {
-            GuitarResponseDto guitar = service.getById(id);
-            return ResponseEntity.ok(guitar);
-        } catch (ResourceNotFoundException ex) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error interno: " + e.getMessage());
-        }
+    public ResponseEntity<?> getById(@PathVariable @Positive(message = "El ID debe ser mayor que cero") Long id) {
+        GuitarResponseDto guitar = service.getById(id);
+        return ResponseEntity.ok(new ResponseGeneric<>("Producto encontrado", guitar));
+    }
+
+    @GetMapping("/name/{name}")
+    public ResponseEntity<?> getByName(@PathVariable String name) {
+        GuitarResponseDto guitar = service.findByName(name);
+        return ResponseEntity.ok(new ResponseGeneric<>("Producto encontrado", guitar));
     }
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody @Valid GuitarRequestDto dto) {
-        try {
-            GuitarResponseDto created = service.create(dto);
-            return ResponseEntity.status(HttpStatus.CREATED).body(created);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error al crear la guitarra: " + e.getMessage());
-        }
+        GuitarResponseDto created = service.create(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(new ResponseGeneric<>("Producto creado", created));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody @Valid GuitarRequestDto dto) {
-        try {
-            GuitarResponseDto updated = service.update(id, dto);
-            return ResponseEntity.ok(updated);
-        } catch (ResourceNotFoundException ex) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error al actualizar la guitarra: " + e.getMessage());
-        }
+    public ResponseEntity<?> update(@PathVariable @Positive(message = "El ID debe ser mayor que cero") Long id,
+            @RequestBody @Valid GuitarRequestDto dto) {
+        GuitarResponseDto updated = service.update(id, dto);
+        return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
-        try {
-            service.delete(id);
-            return ResponseEntity.noContent().build();
-        } catch (ResourceNotFoundException ex) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error al eliminar la guitarra: " + e.getMessage());
-        }
+    public ResponseEntity<?> delete(@PathVariable @Positive(message = "El ID debe ser mayor que cero") Long id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }

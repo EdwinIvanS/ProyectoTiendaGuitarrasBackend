@@ -10,5 +10,5 @@ public class GuitarResponseDto {
     private String image;
     private String description;
     private double price;
-
+    private Integer stock;
 }

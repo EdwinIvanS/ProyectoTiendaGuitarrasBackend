@@ -1,8 +1,7 @@
 package com.operadorservice.microservice_orders.Infraestructure.model;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
-import jakarta.persistence.*; 
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -13,11 +12,13 @@ import lombok.*;
 @AllArgsConstructor
 public class Order {
     @Id
-    @GeneratedValue
-    private UUID id;
+    @Column(columnDefinition = "VARCHAR(36)")
+    private String id;
 
+    @Column(name = "product_id")
     private Long productId;
 
+    @Column(name = "product_name")
     private String productName;
 
     private double price;
@@ -26,8 +27,9 @@ public class Order {
 
     private double total;
 
+    @Column(name = "image_url")
     private String imageUrl;
 
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
-
 }

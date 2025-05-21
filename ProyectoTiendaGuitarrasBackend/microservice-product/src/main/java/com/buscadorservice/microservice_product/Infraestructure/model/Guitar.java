@@ -1,10 +1,10 @@
 package com.buscadorservice.microservice_product.Infraestructure.model;
 
-import jakarta.persistence.*; 
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "guitars")
+@Table(name = "products")
 @Data
 public class Guitar {
     @Id
@@ -14,4 +14,5 @@ public class Guitar {
     private String image;
     private String description;
     private double price;
+    private Integer stock;
 }

@@ -21,7 +21,8 @@ public class GuitarService implements IGuitarService {
     @Override
     public List<GuitarResponseDto> getAll() {
         List<GuitarResponseDto> response = repository.findAll().stream()
-                .map(g -> new GuitarResponseDto(g.getId(), g.getName(), g.getImage(), g.getDescription(), g.getPrice()))
+                .map(g -> new GuitarResponseDto(g.getId(), g.getName(), g.getImage(), g.getDescription(), g.getPrice(),
+                        g.getStock()))
                 .toList();
         return response;
     }
@@ -29,7 +30,15 @@ public class GuitarService implements IGuitarService {
     @Override
     public GuitarResponseDto getById(Long id) {
         Guitar g = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Guitarra no encontrada"));
-        return new GuitarResponseDto(g.getId(), g.getName(), g.getImage(), g.getDescription(), g.getPrice());
+        return new GuitarResponseDto(g.getId(), g.getName(), g.getImage(), g.getDescription(), g.getPrice(),
+                g.getStock());
+    }
+
+    @Override
+    public GuitarResponseDto findByName(String name){
+        Guitar g = repository.findByName(name).orElseThrow(() -> new ResourceNotFoundException("Guitarra no encontrada"));
+        return new GuitarResponseDto(g.getId(), g.getName(), g.getImage(), g.getDescription(), g.getPrice(),
+                g.getStock());
     }
 
     @Override
@@ -39,8 +48,10 @@ public class GuitarService implements IGuitarService {
         g.setImage(dto.getImage());
         g.setDescription(dto.getDescription());
         g.setPrice(dto.getPrice());
+        g.setStock(dto.getStock());
         repository.save(g);
-        return new GuitarResponseDto(g.getId(), g.getName(), g.getImage(), g.getDescription(), g.getPrice());
+        return new GuitarResponseDto(g.getId(), g.getName(), g.getImage(), g.getDescription(), g.getPrice(),
+                g.getStock());
     }
 
     @Override
@@ -50,8 +61,10 @@ public class GuitarService implements IGuitarService {
         g.setImage(dto.getImage());
         g.setDescription(dto.getDescription());
         g.setPrice(dto.getPrice());
+        g.setStock(dto.getStock());
         repository.save(g);
-        return new GuitarResponseDto(g.getId(), g.getName(), g.getImage(), g.getDescription(), g.getPrice());
+        return new GuitarResponseDto(g.getId(), g.getName(), g.getImage(), g.getDescription(), g.getPrice(),
+                g.getStock());
     }
 
     @Override

@@ -1,21 +1,62 @@
 package com.buscadorservice.microservice_product.Infraestructure.exception;
 
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.ResponseEntity;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.http.*;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
+import com.buscadorservice.microservice_product.Infraestructure.dto.ResponseGeneric;
+
+import jakarta.validation.ConstraintViolationException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-    
+
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<String> handleNotFound(ResourceNotFoundException ex){
-        return ResponseEntity.status(HttpStatusCode.valueOf(404)).body(ex.getMessage());
+    public ResponseEntity<ResponseGeneric<String>> handleNotFound(ResourceNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(new ResponseGeneric<>("Recurso no encontrado", ex.getMessage()));
     }
-    
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<?> handleValidationErrors(MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+
+        ex.getBindingResult().getFieldErrors()
+                .forEach(error -> errors.put(error.getField(), error.getDefaultMessage()));
+
+        return ResponseEntity.badRequest().body(
+                new ResponseGeneric<>("Error de validación", errors));
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ResponseGeneric<String>> handleConstraintViolation(ConstraintViolationException ex) {
+        String errorMsg = ex.getConstraintViolations().stream()
+                .map(v -> v.getMessage())
+                .findFirst()
+                .orElse("Parámetro inválido");
+
+        return ResponseEntity.badRequest()
+                .body(new ResponseGeneric<>("Error de validación", errorMsg));
+    }
+
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handleGeneric(Exception ex){
-        return ResponseEntity.status(HttpStatusCode.valueOf(500)).body("Error interno : " + ex.getMessage());
+    public ResponseEntity<ResponseGeneric<String>> handleGeneric(Exception ex) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(new ResponseGeneric<>("Error interno", ex.getMessage()));
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<ResponseGeneric<String>> handleTypeMismatch(MethodArgumentTypeMismatchException ex) {
+        String fieldName = ex.getName();
+        String errorMessage = String.format("El parámetro '%s' debe ser un número válido", fieldName);
+
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(new ResponseGeneric<>("Error de validación", errorMessage));
     }
 }
