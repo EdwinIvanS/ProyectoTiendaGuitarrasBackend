@@ -9,4 +9,5 @@ public class ProductResponse {
     private String image;
     private String description;
     private double price;
+    private int stock;
 }

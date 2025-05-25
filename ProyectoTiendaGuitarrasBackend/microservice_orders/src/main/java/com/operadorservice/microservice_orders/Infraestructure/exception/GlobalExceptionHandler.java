@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
         @ExceptionHandler(ResourceNotFoundException.class)
         public ResponseEntity<ResponseGeneric<String>> handleNotFound(ResourceNotFoundException ex) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                                .body(new ResponseGeneric<>("Recurso no encontrado", ex.getMessage()));
+                                .body(new ResponseGeneric<>("Orden no encontrada", ex.getMessage()));
         }
 
         @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -47,7 +47,7 @@ public class GlobalExceptionHandler {
         @ExceptionHandler(FeignException.NotFound.class)
         public ResponseEntity<ResponseGeneric<String>> handleFeignNotFound(FeignException.NotFound ex) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                                .body(new ResponseGeneric<>("No se puede crear el pedido, producto no existe", null));
+                                .body(new ResponseGeneric<>("No se puede crear la Orden, producto no existe", null));
         }
 
         @ExceptionHandler(Exception.class)

@@ -2,10 +2,8 @@ package com.operadorservice.microservice_orders.Controller;
 
 import org.springframework.web.bind.annotation.*;
 import com.operadorservice.microservice_orders.Service.IOrderService;
-import com.operadorservice.microservice_orders.Infraestructure.model.*;
 import com.operadorservice.microservice_orders.Infraestructure.dto.*;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Positive;
 
 import java.util.List;
 
@@ -25,32 +23,33 @@ public class OrderController {
     @GetMapping
     public ResponseEntity<?> getAllOrders() {
         List<OrderResponseDto> orders = orderService.getAllOrders();
-        return ResponseEntity.ok(new ResponseGeneric<>("Productos encontrados", orders));
+        if (orders.isEmpty())
+            return ResponseEntity.ok(new ResponseGeneric<>("No hay ordenes registradas", orders));
+
+        return ResponseEntity.ok(new ResponseGeneric<>("Ordenes encontradas", orders));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getOrderById(@PathVariable String id) {
         OrderResponseDto order = orderService.findById(id);
-        return ResponseEntity.ok(new ResponseGeneric<>("Orden encontrado", order));
+        return ResponseEntity.ok(new ResponseGeneric<>("Orden encontrada", order));
     }
 
-    @GetMapping("/product/{productId}")
-    public ResponseEntity<ResponseGeneric<List<OrderResponseDto>>> getOrdersByProductId(@PathVariable @Positive(message = "El ID debe ser mayor que cero") Long productId) {
-        List<OrderResponseDto> orders = orderService.findByProductId(productId);
-        if (orders.isEmpty()) {
-            return ResponseEntity.ok(new ResponseGeneric<>("Producto no existe en las ordenes", orders));
-        }
-        return ResponseEntity.ok(new ResponseGeneric<>("Producto contenido en las ordenes", orders));
+    @GetMapping("/byCustomer")
+    public ResponseEntity<List<OrderResponseDto>> getOrdersByCustomerName(
+            @RequestParam String customerName) {
+        List<OrderResponseDto> orders = orderService.findByCustomerName(customerName);
+        return ResponseEntity.ok(orders);
     }
 
     @PostMapping
     public ResponseEntity<?> createOrder(@RequestBody @Valid OrderRequestDto request) {
-        Order order = orderService.createOrder(request);
+        OrderResponseDto order = orderService.createOrder(request);
         return ResponseEntity.ok(new ResponseGeneric<>("Orden creada", order));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<OrderResponseDto> updateOrder(@PathVariable String id, @RequestBody OrderRequestDto dto) {
+    public ResponseEntity<OrderResponseDto> updateOrder(@PathVariable String id, @RequestBody @Valid OrderRequestDto dto) {
         OrderResponseDto updatedOrder = orderService.update(id, dto);
         return ResponseEntity.ok(updatedOrder);
     }
