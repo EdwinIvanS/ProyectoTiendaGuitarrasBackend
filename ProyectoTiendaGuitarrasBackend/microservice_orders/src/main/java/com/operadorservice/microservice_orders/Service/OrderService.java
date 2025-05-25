@@ -7,7 +7,6 @@ import com.operadorservice.microservice_orders.Infraestructure.mapper.OrderItemM
 import com.operadorservice.microservice_orders.Infraestructure.mapper.OrderMapper;
 import com.operadorservice.microservice_orders.Infraestructure.model.Order;
 import com.operadorservice.microservice_orders.Infraestructure.model.OrderItem;
-import com.operadorservice.microservice_orders.Repository.IOrderItemRepository;
 import com.operadorservice.microservice_orders.Repository.IOrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -19,13 +18,10 @@ import java.util.stream.Collectors;
 @Service
 public class OrderService implements IOrderService {
         private IOrderRepository orderRepository;
-        private IOrderItemRepository orderItemRepository;
         private ProductClient productClient;
 
-        public OrderService(IOrderRepository orderRepository, IOrderItemRepository orderItemRepository,
-                        ProductClient productClient) {
+        public OrderService(IOrderRepository orderRepository, ProductClient productClient) {
                 this.orderRepository = orderRepository;
-                this.orderItemRepository = orderItemRepository;
                 this.productClient = productClient;
         }
 

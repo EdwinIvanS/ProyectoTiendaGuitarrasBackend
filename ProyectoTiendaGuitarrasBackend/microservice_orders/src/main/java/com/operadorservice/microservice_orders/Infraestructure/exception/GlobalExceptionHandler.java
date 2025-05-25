@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.http.*;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
@@ -64,5 +65,13 @@ public class GlobalExceptionHandler {
                 return ResponseEntity
                                 .status(HttpStatus.BAD_REQUEST)
                                 .body(new ResponseGeneric<>("Error de validación", errorMessage));
+        }
+
+        @ExceptionHandler(MissingServletRequestParameterException.class)
+        public ResponseEntity<?> handleMissingParams(MissingServletRequestParameterException ex) {
+                String paramName = ex.getParameterName();
+                return ResponseEntity
+                                .status(HttpStatus.BAD_REQUEST)
+                                .body(new ResponseGeneric<>("Falta el parámetro obligatorio " + paramName, null));
         }
 }
