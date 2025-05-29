@@ -1,0 +1,846 @@
+{
+	"info": {
+		"_postman_id": "5db4f837-3c2a-4aaf-b422-8a03993089b5",
+		"name": "MICROSERVICE - PRODUCTS 8081",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21672483"
+	},
+	"item": [
+		{
+			"name": "Listar Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/guitarras",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"guitarras"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/api/guitarras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"api",
+								"guitarras"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 20:28:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Productos encontrados\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Lukather\",\n            \"image\": \"guitarra_01\",\n            \"description\": \"Sonido potente con tonos cálidos. Ideal para solos intensos y acompañamientos suaves. Diseño clásico con acabado profesional.\",\n            \"price\": 299,\n            \"stock\": 10\n        },\n        {\n            \"id\": 2,\n            \"name\": \"SRV\",\n            \"image\": \"guitarra_02\",\n            \"description\": \"Perfecta para estilos agresivos y versátiles. Mástil rápido, cuerpo liviano y excelente sustain para estudio y escenario.\",\n            \"price\": 349,\n            \"stock\": 10\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Borland\",\n            \"image\": \"guitarra_03\",\n            \"description\": \"Guitarra de alta precisión con pastillas activas. Tonos limpios y definidos. Equilibrada para ritmos y melodías complejas.\",\n            \"price\": 329,\n            \"stock\": 10\n        },\n        {\n            \"id\": 4,\n            \"name\": \"VAI\",\n            \"image\": \"guitarra_04\",\n            \"description\": \"Construida con materiales premium. Ideal para jazz y blues. Tono envolvente y respuesta dinámica al toque.\",\n            \"price\": 299,\n            \"stock\": 10\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Thompson\",\n            \"image\": \"guitarra_05\",\n            \"description\": \"Guitarra moderna con acabado brillante. Excelente para géneros contemporáneos. Tonalidad nítida y cuerpo ergonómico.\",\n            \"price\": 399,\n            \"stock\": 10\n        },\n        {\n            \"id\": 6,\n            \"name\": \"White\",\n            \"image\": \"guitarra_06\",\n            \"description\": \"Versatilidad total para músicos exigentes. Compatible con pedales de efectos. Sonido natural y gran estabilidad de afinación.\",\n            \"price\": 329,\n            \"stock\": 10\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Cobain\",\n            \"image\": \"guitarra_07\",\n            \"description\": \"Diseñada para el escenario. Ofrece presencia sonora impactante y comodidad al tocar. Muy valorada por profesionales.\",\n            \"price\": 349,\n            \"stock\": 10\n        },\n        {\n            \"id\": 8,\n            \"name\": \"Dale\",\n            \"image\": \"guitarra_08\",\n            \"description\": \"Hecha para riffs pesados y armonías claras. Acabado mate y electrónica de calidad. Sonido robusto y bien definido.\",\n            \"price\": 379,\n            \"stock\": 10\n        },\n        {\n            \"id\": 9,\n            \"name\": \"Krieger\",\n            \"image\": \"guitarra_09\",\n            \"description\": \"Modelo clásico con mejoras actuales. Ideal para principiantes y expertos. Buena proyección acústica y durabilidad.\",\n            \"price\": 289,\n            \"stock\": 10\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Campbell\",\n            \"image\": \"guitarra_10\",\n            \"description\": \"Sonido profundo y sustain prolongado. Diseño elegante y cómodo para largas sesiones. Excelente balance entre cuerdas.\",\n            \"price\": 349,\n            \"stock\": 10\n        },\n        {\n            \"id\": 11,\n            \"name\": \"Reed\",\n            \"image\": \"guitarra_11\",\n            \"description\": \"Ideal para sesiones en vivo y grabación. Su tono preciso y construcción sólida aseguran confiabilidad y carácter sonoro.\",\n            \"price\": 399,\n            \"stock\": 10\n        },\n        {\n            \"id\": 12,\n            \"name\": \"Hazel\",\n            \"image\": \"guitarra_12\",\n            \"description\": \"Estilo retro con tecnología moderna. Combinación perfecta entre tradición y potencia sonora. Construcción robusta.\",\n            \"price\": 379,\n            \"stock\": 10\n        },\n        {\n            \"id\": 13,\n            \"name\": \"prueba1\",\n            \"image\": \"guitarra_xx\",\n            \"description\": \"prueba1\",\n            \"price\": 11,\n            \"stock\": 2\n        }\n    ]\n}"
+				},
+				{
+					"name": "204 No Content",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/api/guitarras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"api",
+								"guitarras"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 23:31:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Consultar Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/guitarras/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"guitarras",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/api/guitarras/12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"api",
+								"guitarras",
+								"12"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 20:28:27 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Producto encontrado\",\n    \"data\": {\n        \"id\": 12,\n        \"name\": \"Hazel\",\n        \"image\": \"guitarra_12\",\n        \"description\": \"Estilo retro con tecnología moderna. Combinación perfecta entre tradición y potencia sonora. Construcción robusta.\",\n        \"price\": 379,\n        \"stock\": 10\n    }\n}"
+				},
+				{
+					"name": "404 Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/api/guitarras/122",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"api",
+								"guitarras",
+								"122"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 21:05:53 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Recurso no encontrado\",\n    \"data\": \"Guitarra no encontrada\"\n}"
+				},
+				{
+					"name": "400 Bad Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/api/guitarras/0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"api",
+								"guitarras",
+								"0"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 22:42:34 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Error de validación\",\n    \"data\": \"El ID debe ser mayor que cero\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Consultar Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/guitarras/name/Lukather",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"guitarras",
+						"name",
+						"Lukather"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/api/guitarras/name/Lukather",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"api",
+								"guitarras",
+								"name",
+								"Lukather"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 20:29:01 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Producto encontrado\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Lukather\",\n        \"image\": \"guitarra_01\",\n        \"description\": \"Sonido potente con tonos cálidos. Ideal para solos intensos y acompañamientos suaves. Diseño clásico con acabado profesional.\",\n        \"price\": 299,\n        \"stock\": 10\n    }\n}"
+				},
+				{
+					"name": "404 Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/api/guitarras/name/Lukathers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"api",
+								"guitarras",
+								"name",
+								"Lukathers"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 21:07:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Recurso no encontrado\",\n    \"data\": \"Guitarra no encontrada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" :\"prueba\",\r\n    \"image\" : \"guitarra\",\r\n    \"description\" : \"prueba\",\r\n    \"price\" : 1,\r\n    \"stock\" : 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/guitarras",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"guitarras"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "201 Created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" :\"prueba\",\r\n    \"image\" : \"guitarra_xx\",\r\n    \"description\" : \"prueba\",\r\n    \"price\" : 1,\r\n    \"stock\" : 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/api/guitarras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"api",
+								"guitarras"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 21:10:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Producto creado\",\n    \"data\": {\n        \"id\": 14,\n        \"name\": \"prueba\",\n        \"image\": \"guitarra_xx\",\n        \"description\": \"prueba\",\n        \"price\": 1,\n        \"stock\": 2\n    }\n}"
+				},
+				{
+					"name": "400 Bad Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" :\"prueba\",\r\n    \"image\" : \"guitarra_xx\",\r\n    \"description\" : \"prueba\",\r\n    \"price\" : 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/api/guitarras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"api",
+								"guitarras"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 20:48:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Error de validación\",\n    \"data\": {\n        \"price\": \"El precio debe ser mayor que cero\",\n        \"stock\": \"El stock es obligatorio\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar Id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" :\"prueba1\",\r\n    \"image\" : \"guitarra_xx\",\r\n    \"description\" : \"prueba1\",\r\n    \"price\" : 11,\r\n    \"stock\" : 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/guitarras/13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"guitarras",
+						"13"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" :\"prueba1\",\r\n    \"image\" : \"guitarra_xx\",\r\n    \"description\" : \"prueba1\",\r\n    \"price\" : 11,\r\n    \"stock\" : 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/api/guitarras/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"api",
+								"guitarras",
+								"13"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 03:01:30 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 13,\n    \"name\": \"prueba1\",\n    \"image\": \"guitarra_xx\",\n    \"description\": \"prueba1\",\n    \"price\": 11,\n    \"stock\": 2\n}"
+				},
+				{
+					"name": "404 Not Found",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" :\"prueba1\",\r\n    \"image\" : \"guitarra_xx\",\r\n    \"description\" : \"prueba1\",\r\n    \"price\" : 11,\r\n    \"stock\" : 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/api/guitarras/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"api",
+								"guitarras",
+								"13"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 21:11:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Recurso no encontrado\",\n    \"data\": \"Guitarra no encontrada\"\n}"
+				},
+				{
+					"name": "400 Bad Request",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" :\"prueba1\",\r\n    \"image\" : \"guitarra_xx\",\r\n    \"description\" : \"prueba1\",\r\n    \"price\" : 11\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/api/guitarras/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"api",
+								"guitarras",
+								"13"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 21:12:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Error de validación\",\n    \"data\": {\n        \"stock\": \"El stock es obligatorio\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/guitarras/13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"guitarras",
+						"13"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "204 No Content",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/api/guitarras/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"api",
+								"guitarras",
+								"13"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 20:32:26 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "404 Not Found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/api/guitarras/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"api",
+								"guitarras",
+								"13"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 21:15:04 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Recurso no encontrado\",\n    \"data\": \"Guitarra no encontrada\"\n}"
+				}
+			]
+		}
+	]
+}

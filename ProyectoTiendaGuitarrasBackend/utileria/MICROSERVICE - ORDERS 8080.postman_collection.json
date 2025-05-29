@@ -1,0 +1,990 @@
+{
+	"info": {
+		"_postman_id": "f3361a26-1c7a-4e56-ace3-f0d5c511a310",
+		"name": "MICROSERVICE - ORDERS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21672483"
+	},
+	"item": [
+		{
+			"name": "Listar Orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/api/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"api",
+						"pedidos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 23 May 2025 20:25:04 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Órdenes encontradas\",\n    \"data\": [\n        {\n            \"id\": \"123e4567-e89b-12d3-a456-426614174000\",\n            \"customerName\": \"Juan Pérez\",\n            \"createdAt\": \"2025-05-23T12:42:30\",\n            \"status\": \"CREATED\",\n            \"items\": [\n                {\n                    \"productId\": 101,\n                    \"productName\": \"Laptop Lenovo ThinkPad\",\n                    \"price\": 850,\n                    \"quantity\": 2,\n                    \"total\": 850,\n                    \"imageUrl\": \"https://example.com/images/laptop.jpg\"\n                }\n            ]\n        },\n        {\n            \"id\": \"293e6f94-25e7-43ff-8af8-fbfbe8be2b06\",\n            \"customerName\": \"Edwin Ivan\",\n            \"createdAt\": \"2025-05-23T15:22:13\",\n            \"status\": \"CREATED\",\n            \"items\": [\n                {\n                    \"productId\": 12,\n                    \"productName\": \"Hazel\",\n                    \"price\": 379,\n                    \"quantity\": 2,\n                    \"total\": 758,\n                    \"imageUrl\": \"guitarra_12\"\n                },\n                {\n                    \"productId\": 1,\n                    \"productName\": \"Lukather\",\n                    \"price\": 299,\n                    \"quantity\": 1,\n                    \"total\": 299,\n                    \"imageUrl\": \"guitarra_01\"\n                }\n            ]\n        },\n        {\n            \"id\": \"78a1d5be-0664-4b21-93cb-d8da5a5fbcc7\",\n            \"customerName\": \"Juan Pérez\",\n            \"createdAt\": \"2025-05-23T15:16:37\",\n            \"status\": \"CREATED\",\n            \"items\": [\n                {\n                    \"productId\": 1,\n                    \"productName\": \"Lukather\",\n                    \"price\": 299,\n                    \"quantity\": 2,\n                    \"total\": 598,\n                    \"imageUrl\": \"guitarra_01\"\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Consulta id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/api/pedidos/123e4567-e89b-12d3-a456-426614174000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"api",
+						"pedidos",
+						"123e4567-e89b-12d3-a456-426614174000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos/123e4567-e89b-12d3-a456-426614174000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos",
+								"123e4567-e89b-12d3-a456-426614174000"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 23 May 2025 20:25:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Orden encontrada\",\n    \"data\": {\n        \"id\": \"123e4567-e89b-12d3-a456-426614174000\",\n        \"customerName\": \"Juan Pérez\",\n        \"createdAt\": \"2025-05-23T12:42:30\",\n        \"status\": \"CREATED\",\n        \"items\": [\n            {\n                \"productId\": 101,\n                \"productName\": \"Laptop Lenovo ThinkPad\",\n                \"price\": 850,\n                \"quantity\": 2,\n                \"total\": 850,\n                \"imageUrl\": \"https://example.com/images/laptop.jpg\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "404 Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos/123e4567-e89b-12d3-a456-4266141740000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos",
+								"123e4567-e89b-12d3-a456-4266141740000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 23 May 2025 20:25:51 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Recurso no encontrado\",\n    \"data\": \"Orden no encontrada con id: 123e4567-e89b-12d3-a456-4266141740000\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Consulta x Cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/api/pedidos/byCustomer?customerName=Juan Pérez",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"api",
+						"pedidos",
+						"byCustomer"
+					],
+					"query": [
+						{
+							"key": "customerName",
+							"value": "Juan Pérez"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos/byCustomer?customerName=Juan Pérez",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos",
+								"byCustomer"
+							],
+							"query": [
+								{
+									"key": "customerName",
+									"value": "Juan Pérez"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 25 May 2025 22:56:07 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"123e4567-e89b-12d3-a456-426614174000\",\n        \"customerName\": \"Juan Pérez\",\n        \"createdAt\": \"2025-05-23T12:42:30\",\n        \"status\": \"CREATED\",\n        \"items\": [\n            {\n                \"productId\": 101,\n                \"productName\": \"Laptop Lenovo ThinkPad\",\n                \"price\": 850,\n                \"quantity\": 2,\n                \"total\": 850,\n                \"imageUrl\": \"https://example.com/images/laptop.jpg\"\n            }\n        ]\n    },\n    {\n        \"id\": \"78a1d5be-0664-4b21-93cb-d8da5a5fbcc7\",\n        \"customerName\": \"Juan Pérez\",\n        \"createdAt\": \"2025-05-23T15:16:37\",\n        \"status\": \"CREATED\",\n        \"items\": [\n            {\n                \"productId\": 1,\n                \"productName\": \"Lukather\",\n                \"price\": 299,\n                \"quantity\": 2,\n                \"total\": 598,\n                \"imageUrl\": \"guitarra_01\"\n            }\n        ]\n    }\n]"
+				},
+				{
+					"name": "200 OK - No content",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos/byCustomer?customerName=Juan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos",
+								"byCustomer"
+							],
+							"query": [
+								{
+									"key": "customerName",
+									"value": "Juan"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 25 May 2025 22:55:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				},
+				{
+					"name": "404 Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos/byCustomer?customerName=Juan Pérez",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos",
+								"byCustomer"
+							],
+							"query": [
+								{
+									"key": "customerName",
+									"value": "Juan Pérez"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 25 May 2025 22:51:46 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Orden no encontrado\",\n    \"data\": \"Orden no encontrada con id: byCustomer\"\n}"
+				},
+				{
+					"name": "400 Bad Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos/byCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos",
+								"byCustomer"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 25 May 2025 23:14:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Falta el parámetro obligatorio customerName\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "create order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerName\": \"Edwin Ivan S\",\r\n  \"items\": [\r\n    {\r\n      \"productId\": 12,\r\n      \"productName\": \"Lukather\",\r\n      \"price\": 299.00,\r\n      \"quantity\": 2,\r\n      \"imageUrl\": \"guitarra_01\"\r\n    },\r\n    {\r\n      \"productId\": 1,\r\n      \"productName\": \"Dark\",\r\n      \"price\": 299.00,\r\n      \"quantity\": 1,\r\n      \"imageUrl\": \"guitarra_01\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/orders/api/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"api",
+						"pedidos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\" : 12,\r\n    \"productName\" : \"Gibson Les Paul Standard\",\r\n    \"price\" : 12,\r\n    \"quantity\" : 1,\r\n    \"total\" : 2,\r\n    \"imageUrl\" : \"https://example.com/images/les-\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 02:25:46 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Orden creada\",\n    \"data\": {\n        \"id\": \"9e137f0b-5860-4e29-998b-49ecbfd90f9d\",\n        \"productId\": 12,\n        \"productName\": \"Gibson Les Paul Standard\",\n        \"price\": 12,\n        \"quantity\": 1,\n        \"total\": 0,\n        \"imageUrl\": \"https://example.com/images/les-\",\n        \"createdAt\": \"2025-05-20T21:25:46.369424\"\n    }\n}"
+				},
+				{
+					"name": "404 Not Found",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\" : 15,\r\n    \"productName\" : \"Gibson Les Paul Standard\",\r\n    \"price\" : 12,\r\n    \"quantity\" : 1,\r\n    \"total\" : 2,\r\n    \"imageUrl\" : \"https://example.com/images/les-\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 02:08:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"No se puede crear el pedido, producto no existe\",\n    \"data\": null\n}"
+				},
+				{
+					"name": "400 Bad Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerName\": \"Edwin Ivan\",\r\n  \"items\": [\r\n    {\r\n      \"productId\": 12,\r\n      \"productName\": \"Lukather\",\r\n      \"price\": 299.00,\r\n      \"quantity\": 2,\r\n      \"imageUrl\": \"guitarra_01\"\r\n    },\r\n    {\r\n      \"productId\": 1,\r\n      \"productName\": \"Dark\",\r\n      \"price\": 299.00,\r\n      \"quantity\": 0,\r\n      \"imageUrl\": \"guitarra_01\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 23 May 2025 20:33:32 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Error de validación\",\n    \"data\": {\n        \"items[1].quantity\": \"La cantidad mínima debe ser 1\"\n    }\n}"
+				},
+				{
+					"name": "500 Internal Server Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\" : 12,\r\n    \"productName\" : \"Gibson Les Paul Standard\",\r\n    \"price\" : 12,\r\n    \"quantity\" : 1,\r\n    \"total\" : 2,\r\n    \"imageUrl\" : \"https://example.com/images/les-\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 21 May 2025 02:09:01 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Error interno\",\n    \"data\": \"Identifier of entity 'com.operadorservice.microservice_orders.Infraestructure.model.Order' must be manually assigned before calling 'persist()'\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualiza Id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerName\": \"Edwin Ivan XX\",\r\n  \"items\": [\r\n    {\r\n      \"productId\": 12,\r\n      \"productName\": \"LukatherXX\",\r\n      \"price\": 299.00,\r\n      \"quantity\": 0,\r\n      \"imageUrl\": \"guitarra_01\"\r\n    },\r\n    {\r\n      \"productId\": 1,\r\n      \"productName\": \"DarkXX\",\r\n      \"price\": 299.00,\r\n      \"quantity\": 4,\r\n      \"imageUrl\": \"guitarra_01\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/orders/api/pedidos/293e6f94-25e7-43ff-8af8-fbfbe8be2b06",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"api",
+						"pedidos",
+						"293e6f94-25e7-43ff-8af8-fbfbe8be2b06"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerName\": \"Edwin Ivan XX\",\r\n  \"items\": [\r\n    {\r\n      \"productId\": 12,\r\n      \"productName\": \"LukatherXX\",\r\n      \"price\": 299.00,\r\n      \"quantity\": 2,\r\n      \"imageUrl\": \"guitarra_01\"\r\n    },\r\n    {\r\n      \"productId\": 1,\r\n      \"productName\": \"DarkXX\",\r\n      \"price\": 299.00,\r\n      \"quantity\": 0,\r\n      \"imageUrl\": \"guitarra_01\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos/293e6f94-25e7-43ff-8af8-fbfbe8be2b06",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos",
+								"293e6f94-25e7-43ff-8af8-fbfbe8be2b06"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 23 May 2025 20:58:27 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"293e6f94-25e7-43ff-8af8-fbfbe8be2b06\",\n    \"customerName\": \"Edwin Ivan XX\",\n    \"createdAt\": \"2025-05-23T15:22:13\",\n    \"status\": \"CREATED\",\n    \"items\": [\n        {\n            \"productId\": 12,\n            \"productName\": \"Hazel\",\n            \"price\": 379,\n            \"quantity\": 2,\n            \"total\": 758,\n            \"imageUrl\": \"guitarra_12\"\n        },\n        {\n            \"productId\": 1,\n            \"productName\": \"Lukather\",\n            \"price\": 299,\n            \"quantity\": 0,\n            \"total\": 0,\n            \"imageUrl\": \"guitarra_01\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "400 Bad Request",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerName\": \"Edwin Ivan XX\",\r\n  \"items\": [\r\n    {\r\n      \"productId\": 12,\r\n      \"productName\": \"LukatherXX\",\r\n      \"price\": 299.00,\r\n      \"quantity\": 0,\r\n      \"imageUrl\": \"guitarra_01\"\r\n    },\r\n    {\r\n      \"productId\": 1,\r\n      \"productName\": \"DarkXX\",\r\n      \"price\": 299.00,\r\n      \"quantity\": 4,\r\n      \"imageUrl\": \"guitarra_01\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos/293e6f94-25e7-43ff-8af8-fbfbe8be2b06",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos",
+								"293e6f94-25e7-43ff-8af8-fbfbe8be2b06"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 23 May 2025 21:01:07 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Error de validación\",\n    \"data\": {\n        \"items[0].quantity\": \"La cantidad mínima debe ser 1\"\n    }\n}"
+				},
+				{
+					"name": "404 Not Found",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerName\": \"Edwin Ivan sabogal\",\r\n  \"items\": [\r\n    {\r\n      \"productId\": 12,\r\n      \"productName\": \"Lukather\",\r\n      \"price\": 299.00,\r\n      \"quantity\": 5,\r\n      \"imageUrl\": \"guitarra_01\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos/036f8051-49d3-47f8-98c9-963a04747299",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos",
+								"036f8051-49d3-47f8-98c9-963a04747299"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 23 May 2025 20:37:12 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Orden no encontrado\",\n    \"data\": \"Orden no encontrada con id: 036f8051-49d3-47f8-98c9-963a04747299\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/api/pedidos/293e6f94-25e7-43ff-8af8-fbfbe8be2b06",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"api",
+						"pedidos",
+						"293e6f94-25e7-43ff-8af8-fbfbe8be2b06"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "404 Not Found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos/036f8051-49d3-47f8-98c9-963a04747299",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos",
+								"036f8051-49d3-47f8-98c9-963a04747299"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 23 May 2025 21:01:29 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Orden no encontrado\",\n    \"data\": \"Orden no encontrada con id: 036f8051-49d3-47f8-98c9-963a04747299\"\n}"
+				},
+				{
+					"name": "204 No Content",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/orders/api/pedidos/293e6f94-25e7-43ff-8af8-fbfbe8be2b06",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"api",
+								"pedidos",
+								"293e6f94-25e7-43ff-8af8-fbfbe8be2b06"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 23 May 2025 21:01:52 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
