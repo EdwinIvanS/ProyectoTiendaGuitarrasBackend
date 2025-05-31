@@ -35,15 +35,23 @@ microservices-project/
 bash git clone https://github.com/tu-usuario/nombre-del-repositorio.git
 
 ## 🚀 Ejecutar los servicios en orden
+
 1- Ejecutar Config Server
+
 2- Ejecutar Eureka Server
+
 3- Ejecutar Gateway
+
 4- Ejecutar microservicio de productos
+
 5- Ejecutar microservicio de órdenes
+
 
 🔀 Rutas disponibles (a través del Gateway)
 Servicio	 Ruta Gateway	 Redirige a
+
 Productos	 /products/**	 lb://MICROSERVICE-PRODUCT
+
 Órdenes	   /orders/**	   lb://MICROSERVICE-ORDERS
 
 ## 🧪 Pruebas
