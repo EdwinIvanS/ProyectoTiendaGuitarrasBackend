@@ -9,12 +9,19 @@ Este proyecto implementa un ecosistema de microservicios basado en Spring Boot 3
 ## 📦 Estructura del Proyecto
 microservices-project/
 │
+
 ├── config-server/ # Servidor de configuración
+
 ├── eureka-server/ # Servidor de descubrimiento
+
 ├── gateway/ # Gateway para enrutamiento
+
 ├── microservice-product/ # Microservicio de productos
+
 ├── microservice_orders/ # Microservicio de órdenes
+
 ├── utileria/ # Script y coleccion de postman
+
 └── README.md
 
 ## ⚙️ Requisitos previos
@@ -25,8 +32,7 @@ microservices-project/
 
 ## 🚀 Cómo ejecutar el proyecto localmente
 ### Paso 1: Clonar el repositorio
-```[bash git clone https://github.com/tu-usuario/nombre-del-repositorio.git
-cd microservices-project](https://github.com/EdwinIvanS/ProyectoTiendaGuitarrasBackend.git)
+bash git clone https://github.com/tu-usuario/nombre-del-repositorio.git
 
 ## 🚀 Ejecutar los servicios en orden
 1- Ejecutar Config Server
@@ -40,7 +46,7 @@ Servicio	 Ruta Gateway	 Redirige a
 Productos	 /products/**	 lb://MICROSERVICE-PRODUCT
 Órdenes	   /orders/**	   lb://MICROSERVICE-ORDERS
 
-##🧪 Pruebas
+## 🧪 Pruebas
 ### MICROSERVICE - ORDERS
 #### Port Gateway
   - [Get] http://localhost:8080/orders/api/pedidos
